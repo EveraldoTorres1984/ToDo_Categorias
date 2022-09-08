@@ -15,7 +15,8 @@ class Category extends Model
     protected $fillable = [
         'title',
         'color',
-        'user_id'
+        'user_id',
+        
     ];
 
     public function user()
