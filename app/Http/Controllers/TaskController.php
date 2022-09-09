@@ -27,7 +27,7 @@ class TaskController extends Controller
         $task = $request->only(['title', 'category_id', 'description', 'due_date']);
         $task['user_id'] = 1;
         $dbTask = Task::create($task);
-        return $dbTask;
+        dd($request->$dbTask);
     }
 
     public function edit(Request $request)
@@ -49,9 +49,7 @@ class TaskController extends Controller
 
     public function edit_action(Request $request)
     {
-        $request_data = $request->only(['is_done', 'title', 'due_date', 'category_id', 'description']);
-
-        dd($request->all());
+        $request_data = $request->only(['is_done', 'title', 'due_date', 'category_id', 'description']);       
 
         $task = Task::find($request->id);
         if (!$task) {

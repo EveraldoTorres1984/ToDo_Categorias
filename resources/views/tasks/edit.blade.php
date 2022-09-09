@@ -1,4 +1,4 @@
-<x-layout page="Login">
+<x-layout page="Edição de tarefas">
     <x-slot:btn>
         <a href="{{ route('home') }}" class="btn btn-primary">
             voltar
@@ -17,12 +17,11 @@
             <x-form.text_input type="datetime-local" name="due_date" label="Data da realização" value="{{ $task->due_date }}" />
 
 
-            <x-form.select_input name="category_id" label="Categoria">
+            <x-form.select_input id="category_id" name="category_id" label="Categoria">
 
                 @foreach ($categories as $category)
                     <option value="{{ $category->id }}" @if ($category->id == $task->category_id) selected @endif>{{ $category->title }}</option>
                 @endforeach
-
             </x-form.select_input>
 
             <x-form.text_area label="Descrição da tarefa" name="description" placeholder="Digita a descrição da tarefa" value="{{ $task->description }}" />
